@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebSalt.Models.Hotarari> 
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="tbProducts">
+    <header>
+        <div class="panel-heading">
+            <p><b>@System.Configuration.ConfigurationManager.AppSettings["Instanta"] - @System.Configuration.ConfigurationManager.AppSettings["Sala"]</b> - @DateTime.Now.ToString("dddd", new System.Globalization.CultureInfo("ro-RO")).ToUpper() , @DateTime.Now.ToString(new System.Globalization.CultureInfo("ro-RO")) </p>
+            <p>
+                @ViewBag.sectia - @ViewBag.completuri
+            </p>
+        </div>
+    </header>
+    @Html.Partial("IndexPartial", Model)
+    @section scripts {
+        <script type="text/javascript">
+
+        function ReloadIndexPartial() {
+
+            $.post('@(Url.Action())')
+                .done(function (response) {
+                    $("#tbProducts").html(response)
+                    if (!signalRHubInitialized)
+                        InitializeSignalRHubStore();
+                });
+        };
+        </script>
+
+    @*"Index", "Home", null, Request.Url.Scheme*@
+
+    }
+
+
+</div>
+
+
+
+
+

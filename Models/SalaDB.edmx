@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="salaTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Hotarari">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sectia" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="completul" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="nr_ordine" Type="int" Nullable="false" />
+          <Property Name="numar_national" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="obiect_dosar" Type="text" Nullable="false" />
+          <Property Name="stadiu_procesual" Type="text" Nullable="false" />
+          <Property Name="parti" Type="text" Nullable="false" />
+          <Property Name="status_sedinta" Type="varchar" MaxLength="200" />
+          <Property Name="sala_sedinta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data_sedinta" Type="datetime" Nullable="false" />
+          <Property Name="ora_complet" Type="datetime" Nullable="false" />
+          <Property Name="termen_acordat" Type="text" />
+          <Property Name="pronuntare_sedinta" Type="text" />
+          <Property Name="obiect_sedinta" Type="varchar" MaxLength="200" />
+          <Property Name="complet_activ_sedinta" Type="int" Nullable="false" />
+          <Property Name="complet_suspendat_sedinta" Type="int" Nullable="false" />
+          <Property Name="interval_orar_suspendare" Type="varchar" MaxLength="50" />
+          <Property Name="nr_ordine_text" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="salaTestModelStoreContainer">
+          <EntitySet Name="Hotarari" EntityType="Self.Hotarari" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="salaTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Hotarari">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sectia" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="completul" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nr_ordine" Type="Int32" Nullable="false" />
+          <Property Name="numar_national" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="obiect_dosar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stadiu_procesual" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="parti" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status_sedinta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="sala_sedinta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data_sedinta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ora_complet" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="termen_acordat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="pronuntare_sedinta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="obiect_sedinta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="complet_activ_sedinta" Type="Int32" Nullable="false" />
+          <Property Name="complet_suspendat_sedinta" Type="Int32" Nullable="false" />
+          <Property Name="interval_orar_suspendare" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nr_ordine_text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="salaTestEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Hotararis" EntityType="Self.Hotarari" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="salaTestModelStoreContainer" CdmEntityContainer="salaTestEntities2">
+          <EntitySetMapping Name="Hotararis">
+            <EntityTypeMapping TypeName="salaTestModel.Hotarari">
+              <MappingFragment StoreEntitySet="Hotarari">
+                <ScalarProperty Name="nr_ordine_text" ColumnName="nr_ordine_text" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sectia" ColumnName="sectia" />
+                <ScalarProperty Name="completul" ColumnName="completul" />
+                <ScalarProperty Name="nr_ordine" ColumnName="nr_ordine" />
+                <ScalarProperty Name="numar_national" ColumnName="numar_national" />
+                <ScalarProperty Name="obiect_dosar" ColumnName="obiect_dosar" />
+                <ScalarProperty Name="stadiu_procesual" ColumnName="stadiu_procesual" />
+                <ScalarProperty Name="parti" ColumnName="parti" />
+                <ScalarProperty Name="status_sedinta" ColumnName="status_sedinta" />
+                <ScalarProperty Name="sala_sedinta" ColumnName="sala_sedinta" />
+                <ScalarProperty Name="data_sedinta" ColumnName="data_sedinta" />
+                <ScalarProperty Name="ora_complet" ColumnName="ora_complet" />
+                <ScalarProperty Name="termen_acordat" ColumnName="termen_acordat" />
+                <ScalarProperty Name="pronuntare_sedinta" ColumnName="pronuntare_sedinta" />
+                <ScalarProperty Name="obiect_sedinta" ColumnName="obiect_sedinta" />
+                <ScalarProperty Name="complet_activ_sedinta" ColumnName="complet_activ_sedinta" />
+                <ScalarProperty Name="complet_suspendat_sedinta" ColumnName="complet_suspendat_sedinta" />
+                <ScalarProperty Name="interval_orar_suspendare" ColumnName="interval_orar_suspendare" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

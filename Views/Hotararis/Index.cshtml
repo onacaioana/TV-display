@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@using PagedList.Mvc;
+@using PagedList;
+
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    var hasNextPage = @((ViewBag.OnePageOfProducts.HasNextPage) ? "true" : "false");
+
+    if(hasNextPage) {
+        var nextPage = @((ViewBag.OnePageOfProducts.PageNumber) + 1); // next page number is current page number + 1
+        setTimeout(function() {
+            window.location = "Home/index?page=" + nextPage; // load new page after timeout
+        }, (10 * 1000) /* set timeout here, example: 10 seconds */);
+    }
+    else{
+        var nextpage = 1;
+        setTimeout(function() {
+          window.location = "Home/index?page=" + nextPage; // load new page after timeout
+        }, (10 * 1000) /* set timeout here, example: 10 seconds */)
+    }
+</script>
+<script>
+    function isElementOverflowing(element) {
+        var overflowX = element.offsetWidth < element.scrollWidth,
+            overflowY = element.offsetHeight < element.scrollHeight;
+
+        return (overflowX || overflowY);
+    }
+
+    function wrapContentsInMarquee(element) {
+        var marquee = document.createElement('marquee'),
+        contents = element.innerText;
+
+        marquee.innerText = contents;
+        element.innerHTML = '';
+        element.appendChild(marquee);
+    }
+
+    var element = document.getElementById('overflow');
+
+    if (isElementOverflowing(element)) {
+        wrapContentsInMarquee(element);
+    }
+
+</script>
+
+<div class="panel-body">
+    <table class="table table-bordered table-responsive table-hover table-striped table-condensed">
+        <tr style="background-color: blue;">
+
+
+            <th>
+                Ordine în listă
+            </th>
+            <th>
+                Număr
+            </th>
+            <th>
+                Parti
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+
+        @foreach (var item in ViewBag.OnePageOfProducts)
+        {
+            if (item.status_sedinta == "in sedinta")
+            {
+                <tr style="color: #FF0000">
+
+                    <td>
+                        @item.nr_ordine
+                    </td>
+                    <td style="font-weight: bold;">
+                        @item.numar_national
+                    </td>
+                    <td >
+                        @if (item.parti.ToString().Length > 180)
+                        {
+                            <marquee behavior="alternate" direction="left" width="100%" loop="1" scrollamount="1">
+                                @item.parti
+                            </marquee>
+                        }
+
+                        else
+                        {@item.parti}
+                       
+                    </td>
+                    <td>
+                        În dezbatere
+                    </td>
+
+                </tr>
+            }
+
+        }
+
+    @foreach (var item in ViewBag.OnePageOfProducts)
+    {
+        var style = (item.status_sedinta == "nejudecat") ? "color: #000000;" : (item.status_sedinta == "judecat") ? "color: #0000ff;" : (item.status_sedinta == "in sedinta") ? "color: #FF0000;" : "";
+
+         if (item.status_sedinta != "in sedinta")
+        {
+            <tr style="@style">
+
+                <td>
+                    @item.nr_ordine
+                </td>
+                <td style="font-weight: bold;">
+                    @item.numar_national
+                </td>
+                <td>
+                    @if (item.parti.ToString().Length > 180)
+                    {
+                        <marquee behavior="alternate" direction="left" width="100%" loop="1" scrollamount="1">
+                            @item.parti
+                        </marquee>
+                    }
+
+                    else {@item.parti}
+                </td>
+                @if (item.status_sedinta == "judecat")
+                {
+                    <td >
+                        @item.pronuntare_sedinta
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Nejudecat
+                    </td>
+                }
+
+
+            </tr>
+        }
+
+    }
+
+    </table>
+</div>
+<br/>
+
+

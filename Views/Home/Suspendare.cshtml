@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Suspendare";
+}
+
+<header>
+    <div class="panel-heading">
+        <p><b>@System.Configuration.ConfigurationManager.AppSettings["Instanta"] - @System.Configuration.ConfigurationManager.AppSettings["Sala"]</b> - @DateTime.Now.ToString("dddd", new System.Globalization.CultureInfo("ro-RO")).ToUpper() , @DateTime.Now.ToString(new System.Globalization.CultureInfo("ro-RO")) </p>
+        <p>
+            @ViewBag.sectia - @ViewBag.completuri
+        </p>
+    </div>
+</header>
+<div class="jumbotron" style="display: table; padding-right: 10%; height:100%;">
+    <p><b><br /><br /><br /><br /><br /><br />ȘEDINȚA ESTE SUSPENDATĂ ÎNTRE ORELE @ViewBag.interval </b></p>
+</div>

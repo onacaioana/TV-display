@@ -1,0 +1,154 @@
+﻿@model WebSalt.Hotarari
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hotarari</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sectia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sectia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.completul)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.completul)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nr_ordine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nr_ordine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numar_national)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numar_national)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.obiect_dosar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.obiect_dosar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stadiu_procesual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stadiu_procesual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.parti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status_sedinta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_sedinta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sala_sedinta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sala_sedinta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_sedinta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_sedinta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ora_complet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ora_complet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.termen_acordat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.termen_acordat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pronuntare_sedinta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pronuntare_sedinta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.obiect_sedinta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.obiect_sedinta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.complet_activ_sedinta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.complet_activ_sedinta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.complet_suspendat_sedinta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.complet_suspendat_sedinta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.interval_orar_suspendare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.interval_orar_suspendare)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
